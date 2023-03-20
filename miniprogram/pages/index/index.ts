@@ -7,7 +7,7 @@ const app = getApp<IAppOption>()
 Page({
   data: {
     motto: 'Hello World',
-    imgUrls: '',
+    bannerList: [],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -21,7 +21,10 @@ Page({
     })
   },
   async onLoad() {
-    await request('/banner')
+    let bannerListData: any = await request('/banner')
+    this.setData({
+      bannerList: bannerListData.banners
+    })
 
     // @ts-ignore
     if (wx.getUserProfile) {

@@ -1,12 +1,10 @@
 <!-- index.wxml -->
 <view class="container">
   <!-- 轮播图 -->
-  <swiper indicator-color="ivory" indicator-active-color="#3ae591" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{500}}">
-    <block wx:for="{{imgUrls}}">
-      <swiper-item>
-        <image class="swiper-image" src="{{item}}" />
+  <swiper class="bannerContainer" indicator-color="ivory" indicator-active-color="#3ae591" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{500}}">
+      <swiper-item wx:key="encodeId" wx:for="{{bannerList}}">
+        <image src="{{item.imageUrl}}" />
       </swiper-item>
-    </block>
   </swiper>
   <!-- 导航图标 -->
   <view class="navContainer">
