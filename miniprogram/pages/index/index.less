@@ -2,6 +2,7 @@
 .bannerContainer {
   width: 100%;
   height: 300rpx;
+  margin-bottom: 20rpx;
 
   image {
     width: 100%;
@@ -36,31 +37,13 @@
   }
 }
 
-.recommendContainer {
-  padding: 20rpx;
-
-  .recommendHeader {
-    .title {
-      font-size: 32rpx;
-      line-height: 80rpx;
-      color: #666;
-    }
-
-    .more {
-      float: right;
-      border: 1rpx solid #333;
-      padding: 10rpx 20rpx;
-      font-size: 24rpx;
-      border-radius: 30rpx;
-    }
-  }
-}
-
 .recommendScroll {
   display: flex;
+  height: 300rpx;
 
   .scrollItem {
     width: 200rpx;
+    margin: 0 20rpx;
 
     image {
       width: 200rpx;
@@ -75,6 +58,54 @@
       text-overflow: ellipsis;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
+    }
+  }
+}
+
+.topListContainer {
+  height: 520rpx;
+  padding: 20rpx;
+
+  .topListTitle {
+    font-size: 30rpx;
+    line-height: 80rpx;
+  }
+
+  .musicItem {
+    position: relative;
+    float: left;
+    margin: 10rpx;
+    width: 100%;
+
+    .swiper-image {
+      width: 120rpx;
+      height: 120rpx;
+      border-radius: 10rpx;
+    }
+
+    .musicName {
+      position: absolute;
+      left: 140rpx;
+      top: 25rpx;
+      font-size: 26rpx;
+    }
+
+    .artist {
+      position: absolute;
+      left: 140rpx;
+      bottom: 25rpx;
+      font-size: 20rpx;
+      color: #666;
+    }
+
+    &::after {
+      content: '\e658';
+      display: block;
+      float: right;
+      font-size: 50rpx;
+      height: 120rpx;
+      line-height: 120rpx;
+      margin-right: 20rpx;
     }
   }
 }

@@ -2,9 +2,9 @@
 <view class="container">
   <!-- 轮播图 -->
   <swiper class="bannerContainer" indicator-color="ivory" indicator-active-color="#3ae591" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{500}}">
-      <swiper-item wx:key="encodeId" wx:for="{{bannerList}}">
-        <image src="{{item.imageUrl}}" />
-      </swiper-item>
+    <swiper-item wx:key="encodeId" wx:for="{{bannerList}}">
+      <image src="{{item.imageUrl}}" />
+    </swiper-item>
   </swiper>
   <!-- 导航图标 -->
   <view class="navContainer">
@@ -30,19 +30,23 @@
     </view>
   </view>
   <!-- 推荐歌曲区域 -->
-  <view class="recommendContainer">
-    <view class="recommendHeader">
-      <text class="title">推荐歌曲</text>
-      <view>
-        <text>为你精心推荐</text>
-        <text class="more">查看更多</text>
-      </view>
-    </view>
-  </view>
+  <NavHeader title="推荐歌曲" text="为你精心推荐"></NavHeader>
   <scroll-view enable-flex scroll-x="{{true}}" class="recommendScroll">
-    <view class="scrollItem">
-      <image src="#" />
-      <text>alksjdljwjjsjjjjwjljdjlwaljdlkajwjljtowjqoj</text>
+    <view wx:key="id" wx:for="{{recommendList}}" class="scrollItem">
+      <image src="{{item.coverImgUrl}}" />
+      <text>{{item.name}}</text>
     </view>
   </scroll-view>
+  <!-- 排行榜 -->
+  <NavHeader title="排行榜" text="热歌风向标"></NavHeader>
+  <swiper class="topListContainer">
+    <swiper-item wx:for="{{topList}}" wx:key="id">
+      <view class="topListTitle">{{item.name}}</view>
+      <view wx:if="{{index < 3}}" wx:for="{{item.tracks}}" wx:for-item="musicList" class="musicItem iconfont">
+        <image class="swiper-image" src="{{musicList.al.picUrl}}" />
+        <text class="musicName">{{musicList.name}}</text>
+        <text class="artist">{{musicList.ar[0].name +' '+ musicList.ar[1].name}}</text>
+      </view>
+    </swiper-item>
+  </swiper>
 </view>

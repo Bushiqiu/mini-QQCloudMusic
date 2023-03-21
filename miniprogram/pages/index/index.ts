@@ -8,6 +8,9 @@ Page({
   data: {
     motto: 'Hello World',
     bannerList: [],
+    recommendList: [],
+    topList: {},
+
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -22,8 +25,20 @@ Page({
   },
   async onLoad() {
     let bannerListData: any = await request('/banner')
+    let recommendListData: any = await request('/top/playlist', { limit: 15 })
+    let topListData: any = await request('/toplist/detail')
+    let playListArr = new Array();
+    for (let index = 0; index < 5; index++) {
+      let playlistData: any = (await request('/playlist/detail', { id: topListData.list[index].id }))
+      playListArr.push(playlistData.playlist)
+      this.setData({
+        topList: playListArr
+      })
+    }
+
     this.setData({
-      bannerList: bannerListData.banners
+      bannerList: bannerListData.banners,
+      recommendList: recommendListData.playlists,
     })
 
     // @ts-ignore
