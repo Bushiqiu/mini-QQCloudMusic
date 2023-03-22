@@ -1,0 +1,9 @@
+<!-- pages/login/login.wxml -->
+<view class="loginContainer">
+    <!-- <input id="user" bindinput="handleInput" placeholder="支持帐号/手机号登录" />
+    <input type="password" id="password" bindinput="handleInput" placeholder="请输入密码" /> -->
+    <button bindtap="login" class="confirm-btn">获取二维码登录</button>
+    <view class="QRimg" wx:if="{{QRbase64}}">
+        <image mode="widthFix" src="{{QRbase64}}" />
+    </view>
+</view>

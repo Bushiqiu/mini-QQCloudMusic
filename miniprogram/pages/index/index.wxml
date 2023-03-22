@@ -42,7 +42,7 @@
   <swiper class="topListContainer">
     <swiper-item wx:for="{{topList}}" wx:key="id">
       <view class="topListTitle">{{item.name}}</view>
-      <view wx:if="{{index < 3}}" wx:for="{{item.tracks}}" wx:for-item="musicList" class="musicItem iconfont">
+      <view wx:key="id" wx:if="{{index < 3}}" wx:for="{{item.tracks}}" wx:for-item="musicList" class="musicItem iconfont">
         <image class="swiper-image" src="{{musicList.al.picUrl}}" />
         <text class="musicName">{{musicList.name}}</text>
         <text class="artist">{{musicList.ar[0].name +' '+ musicList.ar[1].name}}</text>

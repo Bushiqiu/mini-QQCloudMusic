@@ -1,0 +1,7 @@
+<!-- pages/personal/personal.wxml -->
+<view class="personalContainer">
+    <view class="avatar" bindtap="tologin">
+        <image mode="widthFix" src="{{userInfo.avatarUrl}}" />
+    </view>
+    <text class="nickName">{{userInfo.nickname}}</text>
+</view>

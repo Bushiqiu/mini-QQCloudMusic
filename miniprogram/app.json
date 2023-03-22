@@ -1,13 +1,32 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/personal/personal",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3ae591",
     "navigationBarTitleText": "QQ云音乐",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor": "#3ae591",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "主页",
+        "iconPath": "static/images/tabs/home.png",
+        "selectedIconPath": "static/images/tabs/home-active.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "static/images/tabs/personal.png",
+        "selectedIconPath": "static/images/tabs/personal-active.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -23,7 +23,7 @@ Page({
       url: '../logs/logs',
     })
   },
-  async onLoad() {
+  async getAndSetData() {
     let bannerListData: any = await request('/banner')
     let recommendListData: any = await request('/top/playlist', { limit: 15 })
     let topListData: any = await request('/toplist/detail')
@@ -31,6 +31,7 @@ Page({
     for (let index = 0; index < 5; index++) {
       let playlistData: any = (await request('/playlist/detail', { id: topListData.list[index].id }))
       playListArr.push(playlistData.playlist)
+
       this.setData({
         topList: playListArr
       })
@@ -40,7 +41,10 @@ Page({
       bannerList: bannerListData.banners,
       recommendList: recommendListData.playlists,
     })
-
+  },
+  onLoad() {
+    this.getAndSetData()
+    
     // @ts-ignore
     if (wx.getUserProfile) {
       this.setData({
