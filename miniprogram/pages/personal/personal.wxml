@@ -1,7 +1,54 @@
 <!-- pages/personal/personal.wxml -->
 <view class="personalContainer">
-    <view class="avatar" bindtap="tologin">
-        <image mode="widthFix" src="{{userInfo.avatarUrl}}" />
+    <view class="personalBox">
+        <view class="avatar" bindtap="tologin">
+            <image mode="widthFix" src="{{userInfo.avatarUrl}}" />
+        </view>
+        <text class="nickName">{{userInfo.nickname}}</text>
     </view>
-    <text class="nickName">{{userInfo.nickname}}</text>
+    <view class="funcBox">
+        <view class="item">
+            <text class="iconfont icon-bofang"></text>
+            <text>最近播放</text>
+        </view>
+        <view class="item">
+            <text class="iconfont icon-yinle"></text>
+            <text>本地/下载</text>
+        </view>
+        <view class="item">
+            <text class="iconfont icon-shangchuanyunpan"></text>
+            <text>云盘</text>
+        </view>
+        <view class="item">
+            <text class="iconfont icon-gouwu"></text>
+            <text>已购</text>
+        </view>
+        <view class="item">
+            <text class="iconfont icon-haoyoutuijie"></text>
+            <text>我的好友</text>
+        </view>
+        <view class="item">
+            <text class="iconfont icon-shoucang"></text>
+            <text>收藏和赞</text>
+        </view>
+        <view class="item">
+            <text class="iconfont icon-tance"></text>
+            <text>我的播客</text>
+        </view>
+        <view class="item">
+            <text class="iconfont icon-xiaoxi"></text>
+            <text>交友</text>
+        </view>
+    </view>
+    <view class="collectList">
+        <view class="title">收藏歌单（{{collectList.length-1}}个）</view>
+        <view class="list">
+            <view wx:if="{{index < 5}}" wx:for="{{collectList}}" class="item">
+                <image src="{{item.coverImgUrl}}" />
+                <text class="name">{{item.name}}</text>
+                <text class="author">by {{item.creator.nickname}}</text>
+            </view>
+        </view>
+    </view>
+    <view style="height:20rpx"></view>
 </view>

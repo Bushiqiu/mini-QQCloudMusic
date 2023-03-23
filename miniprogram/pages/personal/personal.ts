@@ -1,3 +1,5 @@
+import request from "../../utils/request"
+
 // pages/personal/personal.ts
 Page({
 
@@ -5,13 +7,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
+    userInfo: { userId: 0 },
+    collectList: {},
+    iflogin: false
   },
 
+  async getlogin() {
+    let loginstatus: any = await request('/login/status')
+    if (loginstatus) {
+      this.setData({ iflogin: true })
+    }
+    this.setData({ iflogin: false })
+
+    let uid = this.data.userInfo.userId;
+    let collectList: any = await request('/user/playlist', { uid })
+    this.setData({ collectList:collectList.playlist })
+  },
   tologin() {
-    wx.navigateTo({
-      url: '/pages/login/login'
-    })
+    if (!this.data.iflogin) {
+      wx.navigateTo({
+        url: '/pages/login/login'
+      })
+    }
   },
 
   /**
@@ -21,6 +38,7 @@ Page({
     let userInfo = wx.getStorageSync('userInfo')
     if (userInfo) {
       this.setData({ userInfo })
+      this.getlogin()
     }
   },
 

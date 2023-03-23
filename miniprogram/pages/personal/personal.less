@@ -1,23 +1,117 @@
 /* pages/personal/personal.wxss */
+page {
+    background-color: #f4f4f4;
+}
+
 .personalContainer {
-    text-align: center;
-    margin: 50rpx auto;
 
-    .avatar {
-        display: block;
-        width: 200rpx;
-        height: 200rpx;
-        margin: 20rpx auto;
-        border-radius: 50%;
-        background-color: #000;
-        overflow: hidden;
+    .personalBox {
+        height: 80rpx;
+        padding-top: 120rpx;
+        margin: 110rpx 20rpx 20rpx;
+        background-color: #fff;
+        border-radius: 20rpx;
+        text-align: center;
+        position: relative;
 
-        image {
-            width: 100%;
+        .avatar {
+            position: absolute;
+            top: -100rpx;
+            left: 36%;
+            display: block;
+            width: 200rpx;
+            height: 200rpx;
+            border-radius: 50%;
+            overflow: hidden;
+
+            image {
+                width: 100%;
+            }
+        }
+
+        .nickName {
+            font-size: 36rpx;
+            font-weight: bold;
+            color: #2e2e2e;
         }
     }
 
-    .nickName {
-        font-size: 36rpx;
+    .funcBox {
+        margin: 20rpx;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        text-align: center;
+        background-color: #fff;
+        padding: 20rpx;
+        border-radius: 20rpx;
+
+
+        .item {
+            margin: 20rpx 0;
+            display: flex;
+            flex-direction: column;
+            flex: 25%;
+            font-size: 32rpx;
+            color: #555555;
+
+            .iconfont {
+                color: #3ae591;
+                font-size: 60rpx;
+                margin: 10rpx 0;
+            }
+        }
+    }
+
+    .collectList {
+        margin: 20rpx;
+        padding: 20rpx;
+        padding-bottom: 0;
+        background-color: #fff;
+        border-radius: 20rpx;
+        overflow: hidden;
+
+        .title {
+            font-size: 25rpx;
+            color: #6e6e6e;
+        }
+
+        .list {
+            margin: 25rpx 0 0;
+            display: flex;
+            flex-direction: column;
+            
+            .item {
+                height: 100rpx;
+                margin-bottom: 20rpx;
+
+                image {
+                    display: block;
+                    float: left;
+                    height: 100rpx;
+                    width: 100rpx;
+                    border-radius: 10rpx;
+                    background-color: #000;
+                }
+
+                .name {
+                    display: block;
+                    font-size: 32rpx;
+                    line-height: 32rpx;
+                    margin: 21rpx 115rpx 10rpx;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+
+                .author {
+                    display: block;
+                    font-size: 23rpx;
+                    line-height: 23rpx;
+                    color: #6e6e6e;
+                    margin-left: 115rpx;
+                }
+            }
+        }
     }
 }
